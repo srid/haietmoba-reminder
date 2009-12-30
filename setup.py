@@ -28,7 +28,7 @@ setup_arguments = dict(
 )
 
 py2exe_arguments = dict(
-      console=['haietmoba.py'],
+      windows=['haietmoba.py'],
       options={'py2exe': {'includes': 'ttk'}})
 
 if have_py2exe:

@@ -1,16 +1,23 @@
 # Script to remind me to ask HAIETMOBA
 # http://www.actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm
 
+import sys
 from os.path import join, dirname
 from datetime import datetime
 
 from Tkinter import *
 import ttk
 
+if hasattr(sys, 'frozen'):
+    scriptdir = dirname(unicode(sys.executable, sys.getfilesystemencoding()))
+else:
+    scriptdir = dirname(unicode(__file__, sys.getfilesystemencoding()))
+
 
 question = 'How am I experiencing this moment of being alive?'
-gap = 2 # in seconds
-feeling_state_file = join(dirname(__file__), 'states.txt')
+# find gap in seconds
+gap = int(open(join(scriptdir, 'gap-in-seconds.txt')).read().strip())
+feeling_state_file = join(scriptdir, 'states.txt')
 
 
 def create_app():
