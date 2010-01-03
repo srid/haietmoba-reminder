@@ -4,6 +4,7 @@
 import sys
 from os.path import join, dirname
 from datetime import datetime
+import urllib
 
 from Tkinter import *
 import ttk
@@ -13,8 +14,11 @@ if hasattr(sys, 'frozen'):
 else:
     scriptdir = dirname(unicode(__file__, sys.getfilesystemencoding()))
 
+DEBUG = True
 
 question = 'How am I experiencing this moment of being alive?'
+if DEBUG:
+    question = 'DEBUG: ' + question
 # find gap in seconds
 gap = int(open(join(scriptdir, 'gap-in-seconds.txt')).read().strip())
 feeling_state_file = join(scriptdir, 'states.txt')
@@ -39,7 +43,7 @@ def create_app():
     # display the question
     l = ttk.Label(mainframe, text=question, style='Big.TLabel',
                   padding='3 3 12 12')
-    l.grid(column=0, row=0, columnspan=4, sticky=(E, W))
+    l.grid(column=0, row=1, columnspan=4, sticky=(E, W))
     
     # control buttons (Hide, ':)', 'Meh', ':(')
     # Hit 'g' or 'm' or 'b'
@@ -47,13 +51,13 @@ def create_app():
     btn_good = ttk.Button(mainframe, text=':-)')
     btn_meh = ttk.Button(mainframe, text='Meh')
     btn_bad = ttk.Button(mainframe, text=':-(')
-    btn_skip.grid(column=0, row=1, sticky=(W, S))
-    btn_good.grid(column=1, row=1, sticky=E)
-    btn_meh.grid(column=2, row=1, sticky=E)
-    btn_bad.grid(column=3, row=1, sticky=E)
+    btn_skip.grid(column=0, row=2, sticky=(W, S))
+    btn_good.grid(column=1, row=2, sticky=E)
+    btn_meh.grid(column=2, row=2, sticky=E)
+    btn_bad.grid(column=3, row=2, sticky=E)
     
     def save_answer(state):
-        save_feeling_state(state)
+        _save_feeling_state(state)
         sleep()
     def sleep():        
         root.withdraw()
@@ -64,8 +68,9 @@ def create_app():
         root.deiconify()
         
     # setup hooks for buttons
-    btn_skip.bind('<ButtonRelease-1>', lambda e: sleep())
-    root.bind('s', lambda e: sleep())
+    #btn_skip.bind('<ButtonRelease-1>', lambda e: sleep())
+    #root.bind('s', lambda e: sleep())
+    btn_skip.state(['disabled'])
     btn_good.bind('<ButtonRelease-1>', lambda e: save_answer('good'))
     root.bind('g', lambda e: save_answer('good'))
     btn_meh.bind('<ButtonRelease-1>', lambda e: save_answer('meh'))
@@ -86,7 +91,7 @@ def _center_window(root):
     root.geometry('%dx%d+%d+%d' % (w, h, x, y))
     
     
-def save_feeling_state(state):
+def _save_feeling_state(state):
     states = set(['good', 'meh', 'bad'])
     assert state in states
     now = datetime.now()
