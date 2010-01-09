@@ -23,7 +23,10 @@ class MainWindow(QtGui.QWidget):
             QtCore.Qt.WindowStaysOnTopHint)
         
         self.createInterface()
-        self.gap = 1 # in minutes
+        self.gap = 10 # in minutes
+        
+        self.quitAction = QtGui.QAction("&Quit", self,
+                triggered=QtGui.qApp.quit)
         
     def setGap(self, gap):
         """Set the gap between reminders in minutes"""
@@ -80,6 +83,17 @@ class MainWindow(QtGui.QWidget):
             (screen.width()-size.width())/2,
             (screen.height()-size.height())/2)
         
+    def closeEvent(self, event):
+        reply = QtGui.QMessageBox.question(
+            self, 'Message', 'Are you sure to quit?',
+            QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+        
+        if reply == QtGui.QMessageBox.Yes:
+            event.accept()
+            app.trayIcon.hide()
+        else:
+            event.ignore()
+        
         
 class Application(QtGui.QApplication):
     
@@ -89,9 +103,6 @@ class Application(QtGui.QApplication):
         self.mainWindow = MainWindow()
         self.mainWindow.setWindowIcon(self.icon)
         self.mainWindow.show()
-        
-        self.quitAction = QtGui.QAction("&Quit", self,
-                triggered=QtGui.qApp.quit)
         
         self.createSystemTrayIcon()
         self.mainWindow.center()
@@ -123,18 +134,11 @@ class Application(QtGui.QApplication):
         aboutAction = menu.addAction('About the actualism method')
         menu.addSeparator()
         
-        menu.addAction(self.quitAction)
+        menu.addAction(self.mainWindow.quitAction)
         self.trayIcon.setContextMenu(menu)
         
         self.trayIcon.setToolTip(theQuestion)
         self.trayIcon.show()
-        
-    def quit(self):
-        assert 0
-        self.trayIcon.hide()
-        self.trayIcon.close()
-        self.mainWindow.close()
-        QtGui.QApplication.quit(self)
         
         
 app = Application(sys.argv)
