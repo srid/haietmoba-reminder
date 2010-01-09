@@ -14,7 +14,7 @@ setup_arguments = dict(
     author_email = 'srid@nearfar.org',
     url = 'http://www.actualfreedom.com.au/',
     license = 'MIT',
-    scripts = ['app.py'],
+    scripts = ['haietmoba-reminder.py'],
     data_files = [('data', ['data/icon.png'])],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -29,7 +29,7 @@ setup_arguments = dict(
 
 
 py2exe_arguments = dict(
-      windows=[{"script": 'app.py'}],
+      windows=[{"script": 'haietmoba-reminder.py'}],
       options={'py2exe': {'includes': 'sip', 'skip_archive': True}})
 
 if have_py2exe:
