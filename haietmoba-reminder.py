@@ -34,7 +34,7 @@ class MainWindow(QtGui.QWidget):
         self.gap = 10 # in minutes
         
         self.quitAction = QtGui.QAction("&Quit", self,
-                triggered=QtGui.qApp.quit)
+                triggered=app.quit)
         
     def setGap(self, gap):
         """Set the gap between reminders in minutes"""
@@ -113,6 +113,8 @@ class Application(QtGui.QApplication):
     def __init__(self, *args, **kw):
         QtGui.QApplication.__init__(self, *args, **kw)
         self.icon = QtGui.QIcon(path.join(scriptDir, 'data/icon.png'))
+        
+    def createInterface(self):
         self.mainWindow = MainWindow()
         self.mainWindow.setWindowIcon(self.icon)
         
@@ -127,6 +129,10 @@ class Application(QtGui.QApplication):
             welcomeMsg % self.mainWindow.gap,
             QtGui.QSystemTrayIcon.Information,
             1000*60)
+    
+    def quit(self, *a, **k):
+        super(Application, self).quit()
+        self.trayIcon.hide()
         
     def createSystemTrayIcon(self):
         """Create a systray icon with a context menu"""
@@ -171,6 +177,7 @@ if not QtGui.QSystemTrayIcon.isSystemTrayAvailable():
             "I couldn't detect any system tray on this system.")
     sys.exit(1)
 
+app.createInterface()
 app.show()
 
 sys.exit(app.exec_())
