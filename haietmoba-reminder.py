@@ -142,7 +142,12 @@ class Application(QtGui.QApplication):
         menu = QtGui.QMenu(self.mainWindow)
         
         self.frequency = QtGui.QActionGroup(self.mainWindow)
-        for (mins, choice) in [(10, 'Every 10 minutes (recommended)'),
+        for (mins, choice) in [(1, 'Every minute'),
+                               (2, 'Every 2 minutes'),
+                               (3, 'Every 3 minutes'),
+                               (4, 'Every 4 minutes'),
+                               (5, 'Every 5 minutes'),
+                               (10, 'Every 10 minutes (recommended)'),
                                (15, 'Every 15 minutes'),
                                (20, 'Every 20 minutes'),
                                (30, 'Every 30 minutes'),
