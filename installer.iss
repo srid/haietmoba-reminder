@@ -244,6 +244,7 @@ Source: dist\data\icon.ico; DestDir: {app}\data
 Name: {group}\HAIETMOBA Reminder; Filename: {app}\haietmoba-reminder.exe; IconFilename: {app}\data\icon.ico; IconIndex: 0
 Name: {group}\{cm:UninstallProgram,HAIETMOBA Reminder}; Filename: {uninstallexe}
 Name: {commondesktop}\HAIETMOBA Reminder; Filename: {app}\haietmoba-reminder.exe; Tasks: desktopicon; IconFilename: {app}\data\icon.ico
+Name: {commonstartup}\HAIETMOBA Reminder; Filename: {app}\haietmoba-reminder.exe; IconFilename: {app}\data\icon.ico
 
 [Run]
 Filename: {app}\haietmoba-reminder.exe; Description: {cm:LaunchProgram,HAIETMOBA Reminder}; Flags: nowait postinstall skipifsilent
