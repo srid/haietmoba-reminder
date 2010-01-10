@@ -12,6 +12,10 @@ else:
 theQuestion = 'How am I experiencing this moment of being alive?'
 methodURL = 'http://actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm'
 projectURL = 'http://bitbucket.org/srid/haietmoba-reminder'
+welcomeMsg = '''This application will remind you to ask HAIETMOBA every %d minutes. \
+For each reminder, answer yourself how you are experiencing this moment of being alive; \
+then click one of the buttons depending on how you are generally feeling.
+'''
 
 
 class MainWindow(QtGui.QWidget):
@@ -106,10 +110,18 @@ class Application(QtGui.QApplication):
         self.icon = QtGui.QIcon(path.join(scriptDir, 'data/icon.png'))
         self.mainWindow = MainWindow()
         self.mainWindow.setWindowIcon(self.icon)
-        self.mainWindow.show()
         
         self.createSystemTrayIcon()
+        
+    def show(self):
+        self.mainWindow.show()
         self.mainWindow.center()
+        self.trayIcon.show()
+        self.trayIcon.showMessage(
+            'Welcome',
+            welcomeMsg % self.mainWindow.gap,
+            QtGui.QSystemTrayIcon.Information,
+            1000*60)
         
     def createSystemTrayIcon(self):
         """Create a systray icon with a context menu"""
@@ -145,7 +157,6 @@ class Application(QtGui.QApplication):
         self.trayIcon.setContextMenu(menu)
         
         self.trayIcon.setToolTip(theQuestion)
-        self.trayIcon.show()
         
         
 app = Application(sys.argv)
@@ -154,5 +165,7 @@ if not QtGui.QSystemTrayIcon.isSystemTrayAvailable():
     QtGui.QMessageBox.critical(None, "Systray",
             "I couldn't detect any system tray on this system.")
     sys.exit(1)
+
+app.show()
 
 sys.exit(app.exec_())
