@@ -1,5 +1,6 @@
 import sys
 from os import path
+import webbrowser
 from PyQt4 import QtGui, QtCore
 
 
@@ -7,7 +8,10 @@ if hasattr(sys, 'frozen'):
     scriptDir = path.dirname(unicode(sys.executable, sys.getfilesystemencoding()))
 else:
     scriptDir = path.dirname(unicode(__file__, sys.getfilesystemencoding()))
+
 theQuestion = 'How am I experiencing this moment of being alive?'
+methodURL = 'http://actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm'
+projectURL = 'http://bitbucket.org/srid/haietmoba-reminder'
 
 
 class MainWindow(QtGui.QWidget):
@@ -132,6 +136,9 @@ class Application(QtGui.QApplication):
         menu.addSeparator()
         
         aboutAction = menu.addAction('About the actualism method')
+        aboutAction.triggered.connect(lambda: webbrowser.open(methodURL))
+        aboutAppAction = menu.addAction('Visit the application home page')
+        aboutAppAction.triggered.connect(lambda: webbrowser.open(projectURL))
         menu.addSeparator()
         
         menu.addAction(self.mainWindow.quitAction)
