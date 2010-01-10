@@ -15,7 +15,7 @@ setup_arguments = dict(
     url = 'http://bitbucket.org/srid/haietmoba-reminder',
     license = 'MIT',
     scripts = ['haietmoba-reminder.py'],
-    data_files = [('data', ['data/icon.png'])],
+    data_files = [('data', ['data/icon.png', 'data/icon.ico'])],
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',

@@ -15,5 +15,6 @@ available at the above bitbucket site. To build the standalone binaries::
 
   python setup.py py2exe
   
-TODO: inno setup instructions
-
+To create a Windows installer, use ISTool from www.istool.org to open
+installer.iss and select Project -> Compile Setup. An installer will be
+created in the Output\ folder.
