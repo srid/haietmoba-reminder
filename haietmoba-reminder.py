@@ -174,6 +174,9 @@ class Application(QtGui.QApplication):
         
         self.trayIcon.setToolTip(theQuestion)
         
+        self.trayIcon.messageClicked.connect(
+            lambda : webbrowser.open(methodURL))
+        
         
 app = Application(sys.argv)
 
