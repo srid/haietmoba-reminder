@@ -40,6 +40,10 @@ class MainWindow(QtGui.QWidget):
         """Set the gap between reminders in minutes"""
         self.gap = gap
         
+    def show(self):
+        super(MainWindow, self).show()
+        self.center()
+        
     def createInterface(self):
         """Create the UI elements of our main window"""
         # The reason for using three buttons (instead of just one called 'OK')
@@ -81,7 +85,8 @@ class MainWindow(QtGui.QWidget):
     def receiveAnswer(self):
         """On receiving the answer, hide the window till next reminder"""
         self.hide()
-        QtCore.QTimer.singleShot(1000*60*self.gap, self.show)
+        interval = 1000*60*gap
+        QtCore.QTimer.singleShot(interval, self.show)
         
     def center(self):
         """Center the window on screen"""
