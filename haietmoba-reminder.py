@@ -85,7 +85,7 @@ class MainWindow(QtGui.QWidget):
     def receiveAnswer(self):
         """On receiving the answer, hide the window till next reminder"""
         self.hide()
-        interval = 1000*60*gap
+        interval = 1000*60*self.gap
         QtCore.QTimer.singleShot(interval, self.show)
         
     def center(self):
