@@ -24,4 +24,5 @@
 Others
 ======
 
-License for data/icon.png requires us to link to http://pixel-mixer.com
+License for the icon used in this program requires us to attribute
+it to its author: http://www.deleket.com/
