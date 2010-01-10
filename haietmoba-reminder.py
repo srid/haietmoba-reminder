@@ -23,6 +23,7 @@ class MainWindow(QtGui.QWidget):
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
         
+        self.resize(1, 1) # adding widgets will expand to fit size
         self.setWindowTitle('HAIETMOBA?')
         self.setToolTip(theQuestion)
         self.setWindowFlags( 
