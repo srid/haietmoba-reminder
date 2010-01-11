@@ -51,11 +51,11 @@ class MainWindow(QtGui.QWidget):
         # is to help prevent the habituation. At least, one has to invest in
         # a few thoughts when there are more buttons ("which one to click? ah,
         # that requires me to first answer the question!")
-        good = QtGui.QPushButton(":-)")
+        good = QtGui.QPushButton(":-&)")
         good.setToolTip('Feeling good (generally)')
-        meh = QtGui.QPushButton(":-|")
+        meh = QtGui.QPushButton(":-&|")
         meh.setToolTip('Feeling OK/neutral (generally) -- what is preventing me from feeling good now?')
-        bad = QtGui.QPushButton(":-(")
+        bad = QtGui.QPushButton(":-&(")
         bad.setToolTip('Feeling bad (generally) -- should investigate the issue')
         
         good.clicked.connect(self.receiveAnswer)
