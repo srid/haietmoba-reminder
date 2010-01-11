@@ -9,7 +9,7 @@ else:
     
 setup_arguments = dict(
     name = 'haietmoba-reminder',
-    version = '1.0b2',
+    version = '1.0b1',
     author = 'Sridhar Ratnakumar',
     author_email = 'srid@nearfar.org',
     url = 'http://bitbucket.org/srid/haietmoba-reminder',
