@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{27152F71-6514-40BD-9374-74745789C60E}
 AppName=HAIETMOBA Reminder
-AppVerName=HAIETMOBA Reminder 1.0b1
+AppVerName=HAIETMOBA Reminder 1.0b2
 AppPublisher=Sridhar Ratnakumar
 AppPublisherURL=bitbucket.org/srid/haietmoba-reminder/
 AppSupportURL=bitbucket.org/srid/haietmoba-reminder/
