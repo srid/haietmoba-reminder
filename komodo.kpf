@@ -2,7 +2,7 @@
 <!-- Komodo Project File - DO NOT EDIT -->
 <project id="26557ec3-c69c-46e3-a96e-cc36a4869c90" kpf_version="4" name="komodo.kpf">
 <preference-set idref="26557ec3-c69c-46e3-a96e-cc36a4869c90">
-  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;*%*;tmp*.html;.DS_Store;.hg;build;dist</string>
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;*%*;tmp*.html;.DS_Store;.hg;build;dist;Output</string>
   <string id="import_include_matches"></string>
   <boolean id="import_live">1</boolean>
   <boolean id="import_recursive">1</boolean>
