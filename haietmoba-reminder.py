@@ -10,7 +10,7 @@ else:
     scriptDir = path.dirname(unicode(__file__, sys.getfilesystemencoding()))
 
 theQuestion = 'How am I experiencing this moment of being alive?'
-methodURL = 'http://actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm'
+methodURL = 'http://www.actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm'
 projectURL = 'http://bitbucket.org/srid/haietmoba-reminder'
 welcomeMsg = '''This application will remind you to ask HAIETMOBA every %d minutes. \
 For each reminder, answer yourself how you are experiencing this moment of being alive; \
