@@ -1,11 +1,11 @@
 Introduction
 ============
 
-A simple app to periodically remind one to ask:
+A simple app to periodically remind one to ask::
 
   How am I experiencing this moment of being alive?
   
-For more details, visit http://github.com/srid/haietmoba-reminder
+For more details, visit http://github.com/srid/haietmoba-reminder/wiki
 
 Building
 ========
