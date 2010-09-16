@@ -11,7 +11,7 @@ else:
 
 theQuestion = 'How am I experiencing this moment of being alive?'
 methodURL = 'http://www.actualfreedom.com.au/richard/articles/thismomentofbeingalive.htm'
-projectURL = 'http://bitbucket.org/srid/haietmoba-reminder'
+projectURL = 'http://github.com/srid/haietmoba-reminder'
 welcomeMsg = '''This application will remind you to ask HAIETMOBA every %d minutes. \
 For each reminder, answer yourself how you are experiencing this moment of being alive; \
 then click one of the buttons depending on how you are generally feeling.
