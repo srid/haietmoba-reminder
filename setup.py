@@ -1,3 +1,4 @@
+import sys
 from distutils.core import setup
 try:
     import py2exe
@@ -29,12 +30,17 @@ setup_arguments = dict(
 
 
 py2exe_arguments = dict(
-      windows=[{"script": 'haietmoba-reminder.py'}],
-      options={'py2exe': {'includes': 'sip', 'skip_archive': True}})
+    windows=[{"script": 'haietmoba-reminder.py'}],
+    options={'py2exe': {
+        'dll_excludes': ["MSVCP90.dll"],
+        'includes': 'sip',
+        'skip_archive': True,
+        }
+    }
+)
 
 if have_py2exe:
     setup_arguments.update(py2exe_arguments)
     
     
 setup(**setup_arguments)
-
