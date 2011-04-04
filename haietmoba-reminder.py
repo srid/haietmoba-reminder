@@ -1,7 +1,8 @@
 import sys
 from os import path
 import webbrowser
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 
 
 if hasattr(sys, 'frozen'):
